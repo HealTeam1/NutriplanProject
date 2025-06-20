@@ -2,14 +2,16 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    //ksp
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.healtteam.nutriplanproject"
+    namespace = "com.healtteam.nutriplan"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.healtteam.nutriplanproject"
+        applicationId = "com.healtteam.nutriplan"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -49,12 +51,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.navigation.compose.android)
-    implementation(libs.places)
-    implementation("com.google.android.material:material:1.9.0")
-    implementation ("androidx.navigation:navigation-compose:2.7.2")
-    implementation ("androidx.compose.material3:material3:1.2.0")
-    implementation ("androidx.compose.material:material-icons-extended: 1.5.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,4 +58,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Dependencies
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.navigation.compose)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
